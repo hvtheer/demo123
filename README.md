@@ -29,6 +29,14 @@ Change into the project directory:
 cd demo123
 ```
 
+### Install Dependencies
+
+Run Composer to install project dependencies:
+
+```bash
+composer install
+```
+
 ### Configure Environment
 
 1. Copy the .env.example file to create a new .env file:
