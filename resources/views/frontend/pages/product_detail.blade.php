@@ -303,7 +303,7 @@
 		<!--/ End Shop Single -->
 		
 		<!-- Start Most Popular -->
-	<div class="product-area most-popular related-product section">
+	{{-- <div class="product-area most-popular related-product section">
         <div class="container">
             <div class="row">
 				<div class="col-12">
@@ -313,7 +313,7 @@
 				</div>
             </div>
             <div class="row">
-                {{-- {{$product_detail->rel_prods}} --}}
+                
                 <div class="col-12">
                     <div class="owl-carousel popular-slider">
                         @foreach($product_detail->rel_prods as $data)
@@ -328,7 +328,7 @@
                                             <img class="default-img" src="{{$photo[0]}}" alt="{{$photo[0]}}">
                                             <img class="hover-img" src="{{$photo[0]}}" alt="{{$photo[0]}}">
                                             <span class="price-dec">{{$data->discount}} % Off</span>
-                                                                    {{-- <span class="out-of-stock">Hot</span> --}}
+                                            
                                         </a>
                                         <div class="button-head">
                                             <div class="product-action">
@@ -361,7 +361,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 	<!-- End Most Popular Area -->
 	
 

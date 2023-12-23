@@ -142,7 +142,7 @@
       chart.draw(data, options);
   }
 </script>
-  {{-- line chart --}}
+
   <script type="text/javascript">
     const url = "{{route('product.order.income')}}";
     // Set new default font family and font color to mimic Bootstrap's default styling

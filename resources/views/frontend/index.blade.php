@@ -28,7 +28,7 @@
     </div> --}}
     <!--/ End Single Slider -->
 </section>
-@if(count($banners)>0)
+{{-- @if(count($banners)>0)
     <section id="Gslider" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             @foreach($banners as $key=>$banner)
@@ -57,7 +57,7 @@
         <span class="sr-only">Next</span>
         </a>
     </section>
-@endif
+@endif --}}
 
 <!--/ End Slider Area -->
 
@@ -194,7 +194,7 @@
     $featured=DB::table('products')->where('is_featured',1)->where('status','active')->orderBy('id','DESC')->limit(1)->get();
 @endphp --}}
 <!-- Start Midium Banner  -->
-<section class="midium-banner">
+{{-- <section class="midium-banner">
     <div class="container">
         <div class="row">
             @if($featured)
@@ -218,7 +218,7 @@
             @endif
         </div>
     </div>
-</section>
+</section> --}}
 <!-- End Midium Banner -->
 
 <!-- Start Most Popular -->
@@ -366,7 +366,7 @@
     <!-- /End Cowndown Area -->
 @endforeach --}}
 <!-- Start Shop Blog  -->
-<section class="shop-blog section">
+{{-- <section class="shop-blog section">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -395,7 +395,7 @@
             
         </div>
     </div>
-</section>
+</section> --}}
 <!-- End Shop Blog  -->
 
 <!-- Start Shop Services Area -->
@@ -565,9 +565,9 @@
                                                 <a href="{{route('add-to-wishlist',$product->slug)}}" class="btn min"><i class="ti-heart"></i></a>
                                             </div>
                                         </form>
-                                        <div class="default-social">
+                                        {{-- <div class="default-social">
                                         <!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons"></div><!-- ShareThis END -->
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>
@@ -581,8 +581,8 @@
 @endsection
 
 @push('styles')
-    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f2e5abf393162001291e431&product=inline-share-buttons' async='async'></script>
-    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f2e5abf393162001291e431&product=inline-share-buttons' async='async'></script>
+    {{-- <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f2e5abf393162001291e431&product=inline-share-buttons' async='async'></script>
+    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f2e5abf393162001291e431&product=inline-share-buttons' async='async'></script> --}}
     <style>
         /* Banner Sliding */
         #Gslider .carousel-inner {

@@ -9,7 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2.5|^7.3",
-        "barryvdh/laravel-dompdf": "^0.8.6",
+        "barryvdh/laravel-dompdf": "^0.8.7",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
@@ -19,9 +19,8 @@
         "laravel/ui": "^2.1",
         "pusher/pusher-php-server": "^4.1",
         "spatie/laravel-newsletter": "^4.8",
-        "srmklive/paypal": "~1.0",
-        "unisharp/laravel-filemanager": "^2.1",
-        "monolog/monolog": "2.0.*"
+        "srmklive/paypal": "^1.11",
+        "unisharp/laravel-filemanager": "^2.1"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

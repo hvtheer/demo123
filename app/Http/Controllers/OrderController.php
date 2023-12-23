@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Helper;
+use App\User;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Shipping;
-use App\User;
-use PDF;
-use Notification;
-use Helper;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use App\Notifications\StatusNotification;
+use Illuminate\Support\Facades\Notification;
 
 class OrderController extends Controller
 {
@@ -275,7 +275,7 @@ class OrderController extends Controller
         // return $order;
         $file_name=$order->order_number.'-'.$order->first_name.'.pdf';
         // return $file_name;
-        $pdf=PDF::loadview('backend.order.pdf',compact('order'));
+        $pdf=PDF::loadView('backend.order.pdf',compact('order'));
         return $pdf->download($file_name);
     }
     // Income chart

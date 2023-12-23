@@ -15,7 +15,6 @@
                     <div class="right-content">
                         <ul class="list-main">
                         <li><i class="ti-location-pin"></i> <a href="{{route('order.track')}}">Track Order</a></li>
-                            {{-- <li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a></li> --}}
                             @auth 
                                 @if(Auth::user()->role=='admin')
                                     <li><i class="ti-user"></i> <a href="{{route('admin')}}"  target="_blank">Dashboard</a></li>
@@ -44,7 +43,7 @@
                         @php
                             $settings=DB::table('settings')->get();
                         @endphp                    
-                        <a href="{{route('home')}}"><img src="@foreach($settings as $data) {{$data->logo}} @endforeach" alt="logo"></a>
+                        <a href="{{route('home')}}"><span>Cheemsマケット</span></a>
                     </div>
                     <!--/ End Logo -->
                     <!-- Search Form -->
@@ -171,7 +170,7 @@
         </div>
     </div>
     <!-- Header Inner -->
-    <div class="header-inner">
+    {{-- <div class="header-inner">
         <div class="container">
             <div class="cat-nav-head">
                 <div class="row">
@@ -199,6 +198,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!--/ End Header Inner -->
 </header>

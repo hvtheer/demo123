@@ -1,5 +1,5 @@
 
-	<!-- Start Footer Area -->
+	{{-- <!-- Start Footer Area -->
 	<footer class="footer">
 		<!-- Footer Top -->
 		<div class="footer-top section">
@@ -87,7 +87,7 @@
 			</div>
 		</div>
 	</footer>
-	<!-- /End Footer Area -->
+	<!-- /End Footer Area --> --}}
  
 	<!-- Jquery -->
     <script src="{{asset('frontend/js/jquery.min.js')}}"></script>
