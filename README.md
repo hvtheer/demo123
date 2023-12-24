@@ -10,7 +10,7 @@ Follow these steps to set up and run the Laravel project on your local machine.
 
 2. **Install Composer:** Download and install Composer from [https://getcomposer.org/download/](https://getcomposer.org/download/).
 
-3. **Install PHP 7.3:** Make sure PHP 7.3 is installed on your machine. You can download it from [https://www.php.net/releases/](https://www.php.net/releases/).
+3. **Install PHP 8.1:** Make sure PHP 8.1 is installed on your machine. You can download it from [https://www.php.net/downloads.php](https://www.php.net/downloads.php).
 
 4. **Set up PHP in Windows:** You can follow step-by-step in this video [https://www.youtube.com/watch?v=MPRLUd8Pmyo](https://www.youtube.com/watch?v=MPRLUd8Pmyo).
 
@@ -90,6 +90,14 @@ Import the provided SQL file into the demo123 database:
 2. Click on the "Import" tab.
 
 3. Choose the e-shop.sql file from the database folder and click "Go" to import the data.
+
+### Create Symbolic Link for Storage
+
+Create a symbolic link to make the storage folder accessible from the public directory:
+
+```bash
+php artisan storage:link
+```
 
 ### Run the Laravel Development Server
 
