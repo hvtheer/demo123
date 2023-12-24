@@ -113,10 +113,6 @@
 			</div>
 		</div>
 	</section>
-	<!-- End Shop Newsletter -->
-	
-	@include('frontend.layouts.newsletter')
-	
 	
 	
 	<!-- Modal -->

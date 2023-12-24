@@ -1,34 +1,8 @@
 @extends('frontend.layouts.master')
-@section('title','E-SHOP || HOME PAGE')
+@section('title','CHEEMS MARKET || HOME PAGE')
 @section('main-content')
 <!-- Slider Area -->
-<section class="hero-slider">
-    <!-- Single Slider -->
-
-    {{-- <div class="single-slider">
-        <div class="container">
-            <div class="row no-gutters">
-                <div class="col-lg-9 offset-lg-3 col-12">
-                    <div class="text-inner">
-                        <div class="row">
-                            <div class="col-lg-7 col-12">
-                                <div class="hero-text">
-                                    <h1><span>UP TO 50% OFF </span>Shirt For Man</h1>
-                                    <p>Maboriosam in a nesciung eget magnae <br> dapibus disting tloctio in the find it pereri <br> odiy maboriosm.</p>
-                                    <div class="button">
-                                        <a href="#" class="btn">Shop Now!</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-    <!--/ End Single Slider -->
-</section>
-{{-- @if(count($banners)>0)
+@if(count($banners)>0)
     <section id="Gslider" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             @foreach($banners as $key=>$banner)
@@ -45,8 +19,8 @@
                         <p>{!! html_entity_decode($banner->description) !!}</p>
                         <a class="btn btn-lg ws-btn wow fadeInUpBig" href="{{route('product-grids')}}" role="button">Shop Now<i class="far fa-arrow-alt-circle-right"></i></i></a>
                     </div>
-                </div>  
-            @endforeach   
+                </div>
+            @endforeach
         </div>
         <a class="carousel-control-prev" href="#Gslider" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -57,7 +31,7 @@
         <span class="sr-only">Next</span>
         </a>
     </section>
-@endif --}}
+@endif
 
 <!--/ End Slider Area -->
 
@@ -65,7 +39,7 @@
 <section class="small-banner section">
     <div class="container-fluid">
         <div class="row">
-            @php 
+            @php
             $category_lists=DB::table('categories')->where('status','active')->limit(3)->get();
             @endphp
             @if($category_lists)
@@ -105,12 +79,12 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-12">        
+                <div class="col-12">
                     <div class="product-info">
                         <div class="nav-main">
                             <!-- Tab Nav -->
                             <ul class="nav nav-tabs filter-tope-group" id="myTab" role="tablist">
-                                @php 
+                                @php
                                     $categories=DB::table('categories')->where('status','active')->where('is_parent',1)->get();
                                     // dd($categories);
                                 @endphp
@@ -119,7 +93,7 @@
                                     All Products
                                 </button>
                                     @foreach($categories as $key=>$cat)
-                                    
+
                                     <button class="btn" style="background:none;color:black;"data-filter=".{{$cat->id}}">
                                         {{$cat->title}}
                                     </button>
@@ -136,7 +110,7 @@
                                     <div class="single-product">
                                         <div class="product-img">
                                             <a href="{{route('product-detail',$product->slug)}}">
-                                                @php 
+                                                @php
                                                     $photo=explode(',',$product->photo);
                                                 // dd($photo);
                                                 @endphp
@@ -180,7 +154,7 @@
 
                              <!--/ End Single Tab -->
                             @endif
-                       
+
                         <!--/ End Single Tab -->
 
                         </div>
@@ -193,33 +167,6 @@
 {{-- @php
     $featured=DB::table('products')->where('is_featured',1)->where('status','active')->orderBy('id','DESC')->limit(1)->get();
 @endphp --}}
-<!-- Start Midium Banner  -->
-{{-- <section class="midium-banner">
-    <div class="container">
-        <div class="row">
-            @if($featured)
-                @foreach($featured as $data)
-                    <!-- Single Banner  -->
-                    <div class="col-lg-6 col-md-6 col-12">
-                        <div class="single-banner">
-                            @php 
-                                $photo=explode(',',$data->photo);
-                            @endphp
-                            <img src="{{$photo[0]}}" alt="{{$photo[0]}}">
-                            <div class="content">
-                                <p>{{$data->cat_info['title']}}</p>
-                                <h3>{{$data->title}} <br>Up to<span> {{$data->discount}}%</span></h3>
-                                <a href="{{route('product-detail',$data->slug)}}">Shop Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /End Single Banner  -->
-                @endforeach
-            @endif
-        </div>
-    </div>
-</section> --}}
-<!-- End Midium Banner -->
 
 <!-- Start Most Popular -->
 <div class="product-area most-popular section">
@@ -240,7 +187,7 @@
                         <div class="single-product">
                             <div class="product-img">
                                 <a href="{{route('product-detail',$product->slug)}}">
-                                    @php 
+                                    @php
                                         $photo=explode(',',$product->photo);
                                     // dd($photo);
                                     @endphp
@@ -262,7 +209,7 @@
                                 <h3><a href="{{route('product-detail',$product->slug)}}">{{$product->title}}</a></h3>
                                 <div class="product-price">
                                     <span class="old">${{number_format($product->price,2)}}</span>
-                                    @php 
+                                    @php
                                     $after_discount=($product->price-($product->price*$product->discount)/100)
                                     @endphp
                                     <span>${{number_format($after_discount,2)}}</span>
@@ -302,7 +249,7 @@
                                 <div class="row">
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <div class="list-image overlay">
-                                        @php 
+                                        @php
                                             $photo=explode(',',$product->photo);
                                             // dd($photo);
                                         @endphp
@@ -328,75 +275,6 @@
     </div>
 </section>
 <!-- End Shop Home List  -->
-{{-- @foreach($featured as $data)
-    <!-- Start Cowndown Area -->
-    <section class="cown-down">
-        <div class="section-inner ">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-6 col-12 padding-right">
-                        <div class="image">
-                            @php 
-                                $photo=explode(',',$data->photo);
-                                // dd($photo);
-                            @endphp
-                            <img src="{{$photo[0]}}" alt="{{$photo[0]}}">
-                        </div>	
-                    </div>	
-                    <div class="col-lg-6 col-12 padding-left">
-                        <div class="content">
-                            <div class="heading-block">
-                                <p class="small-title">Deal of day</p>
-                                <h3 class="title">{{$data->title}}</h3>
-                                <p class="text">{!! html_entity_decode($data->summary) !!}</p>
-                                @php 
-                                    $after_discount=($product->price-($product->price*$product->discount)/100)
-                                @endphp
-                                <h1 class="price">${{number_format($after_discount)}} <s>${{number_format($data->price)}}</s></h1>
-                                <div class="coming-time">
-                                    <div class="clearfix" data-countdown="2021/02/30"></div>
-                                </div>
-                            </div>
-                        </div>	
-                    </div>	
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- /End Cowndown Area -->
-@endforeach --}}
-<!-- Start Shop Blog  -->
-{{-- <section class="shop-blog section">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="section-title">
-                    <h2>From Our Blog</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            @if($posts)
-                @foreach($posts as $post)
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <!-- Start Single Blog  -->
-                        <div class="shop-single-blog">
-                            <img src="{{$post->photo}}" alt="{{$post->photo}}">
-                            <div class="content">
-                                <p class="date">{{$post->created_at->format('d M , Y. D')}}</p>
-                                <a href="{{route('blog.detail',$post->slug)}}" class="title">{{$post->title}}</a>
-                                <a href="{{route('blog.detail',$post->slug)}}" class="more-btn">Continue Reading</a>
-                            </div>
-                        </div>
-                        <!-- End Single Blog  -->
-                    </div>
-                @endforeach
-            @endif
-            
-        </div>
-    </div>
-</section> --}}
-<!-- End Shop Blog  -->
 
 <!-- Start Shop Services Area -->
 <section class="shop-services section home">
@@ -407,7 +285,7 @@
                 <div class="single-service">
                     <i class="ti-rocket"></i>
                     <h4>Free shiping</h4>
-                    <p>Orders over $100</p>
+                    <p>Orders over $1000</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -443,8 +321,6 @@
 </section>
 <!-- End Shop Services Area -->
 
-@include('frontend.layouts.newsletter')
-
 <!-- Modal -->
 @if($product_lists)
     @foreach($product_lists as $key=>$product)
@@ -460,7 +336,7 @@
                                     <!-- Product Slider -->
                                         <div class="product-gallery">
                                             <div class="quickview-slider-active">
-                                                @php 
+                                                @php
                                                     $photo=explode(',',$product->photo);
                                                 // dd($photo);
                                                 @endphp
@@ -491,7 +367,7 @@
                                                     @for($i=1; $i<=5; $i++)
                                                         @if($rate>=$i)
                                                             <i class="yellow fa fa-star"></i>
-                                                        @else 
+                                                        @else
                                                         <i class="fa fa-star"></i>
                                                         @endif
                                                     @endfor
@@ -501,7 +377,7 @@
                                             <div class="quickview-stock">
                                                 @if($product->stock >0)
                                                 <span><i class="fa fa-check-circle-o"></i> {{$product->stock}} in stock</span>
-                                                @else 
+                                                @else
                                                 <span><i class="fa fa-times-circle-o text-danger"></i> {{$product->stock}} out stock</span>
                                                 @endif
                                             </div>
@@ -519,7 +395,7 @@
                                                     <div class="col-lg-6 col-12">
                                                         <h5 class="title">Size</h5>
                                                         <select>
-                                                            @php 
+                                                            @php
                                                             $sizes=explode(',',$product->size);
                                                             // dd($sizes);
                                                             @endphp
@@ -541,7 +417,7 @@
                                             </div>
                                         @endif
                                         <form action="{{route('single-add-to-cart')}}" method="POST" class="mt-4">
-                                            @csrf 
+                                            @csrf
                                             <div class="quantity">
                                                 <!-- Input Order -->
                                                 <div class="input-group">
@@ -565,9 +441,9 @@
                                                 <a href="{{route('add-to-wishlist',$product->slug)}}" class="btn min"><i class="ti-heart"></i></a>
                                             </div>
                                         </form>
-                                        {{-- <div class="default-social">
+                                        <div class="default-social">
                                         <!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons"></div><!-- ShareThis END -->
-                                        </div> --}}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -581,8 +457,6 @@
 @endsection
 
 @push('styles')
-    {{-- <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f2e5abf393162001291e431&product=inline-share-buttons' async='async'></script>
-    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f2e5abf393162001291e431&product=inline-share-buttons' async='async'></script> --}}
     <style>
         /* Banner Sliding */
         #Gslider .carousel-inner {
@@ -623,69 +497,8 @@
 
 @push('scripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-
-    {{-- <script>
-        $('.cart').click(function(){
-            var quantity=1;
-            var pro_id=$(this).data('id');
-            $.ajax({
-                url:"{{route('add-to-cart')}}",
-                type:"POST",
-                data:{
-                    _token:"{{csrf_token()}}",
-                    quantity:quantity,
-                    pro_id:pro_id
-                },
-                success:function(response){
-                    console.log(response);
-					if(typeof(response)!='object'){
-						response=$.parseJSON(response);
-					}
-					if(response.status){
-						swal('success',response.msg,'success').then(function(){
-							// document.location.href=document.location.href;
-						});
-					}
-                    else{
-                        window.location.href='user/login'
-                    }
-                }
-            })
-        });
-    </script> --}}
-    {{-- <script>
-        $('.wishlist').click(function(){
-            var quantity=1;
-            var pro_id=$(this).data('id');
-            // alert(pro_id);
-            $.ajax({
-                url:"{{route('add-to-wishlist')}}",
-                type:"POST",
-                data:{
-                    _token:"{{csrf_token()}}",
-                    quantity:quantity,
-                    pro_id:pro_id,
-                },
-                success:function(response){
-                    if(typeof(response)!='object'){
-                        response=$.parseJSON(response);
-                    }
-                    if(response.status){
-                        swal('success',response.msg,'success').then(function(){
-                            document.location.href=document.location.href;
-                        });
-                    }
-                    else{
-                        swal('error',response.msg,'error').then(function(){
-							// document.location.href=document.location.href;
-						}); 
-                    }
-                }
-            });
-        });
-    </script> --}}
     <script>
-        
+
         /*==================================================================
         [ Isotope ]*/
         var $topeContainer = $('.isotope-grid');
@@ -697,7 +510,7 @@
                 var filterValue = $(this).attr('data-filter');
                 $topeContainer.isotope({filter: filterValue});
             });
-            
+
         });
 
         // init Isotope

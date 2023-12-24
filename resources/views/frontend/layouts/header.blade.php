@@ -1,25 +1,26 @@
-<header class="header shop" >
+<header class="header shop">
     <!-- Topbar -->
-    <div class="topbar" >
+    <div class="topbar">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-12 col-12" >
-                    <!-- Top Left -->
-                    <div class="top-left">
-                       
-                    </div>
-                    <!--/ End Top Left -->
+                <div class="col-lg-6 col-md-12 col-12">
                 </div>
                 <div class="col-lg-6 col-md-12 col-12">
                     <!-- Top Right -->
                     <div class="right-content">
                         <ul class="list-main">
-                        <li><i class="ti-location-pin"></i> <a href="{{route('order.track')}}">Track Order</a></li>
                             @auth 
                                 @if(Auth::user()->role=='admin')
-                                    <li><i class="ti-user"></i> <a href="{{route('admin')}}"  target="_blank">Dashboard</a></li>
+                                    <li><i class="ti-user"></i> <a href="{{route('admin')}}" >Dashboard</a></li>
                                 @else 
-                                    <li><i class="ti-user"></i> <a href="{{route('user')}}"  target="_blank">Dashboard</a></li>
+                                    <li>
+                                        <a href="{{ route('user') }}" style="display: flex; align-items: center;">
+                                            <div style="width: 30px; height: 30px; overflow: hidden; border-radius: 50%; margin-right: 10px;">
+                                                <img src="{{Auth()->user()->photo}}" alt="User Avatar" style="width: 100%; height: auto;">
+                                            </div>
+                                            {{Auth()->user()->name}}
+                                        </a>
+                                    </li>
                                 @endif
                                 <li><i class="ti-power-off"></i> <a href="{{route('user.logout')}}">Logout</a></li>
 
@@ -39,11 +40,8 @@
             <div class="row">
                 <div class="col-lg-2 col-md-2 col-12">
                     <!-- Logo -->
-                    <div class="logo">
-                        @php
-                            $settings=DB::table('settings')->get();
-                        @endphp                    
-                        <a href="{{route('home')}}"><span>Cheemsマケット</span></a>
+                    <div class="logo">               
+                        <a href="{{route('home')}}"><h4>CHEEMS MARKET</h4></a>
                     </div>
                     <!--/ End Logo -->
                     <!-- Search Form -->
@@ -111,7 +109,7 @@
                                                     <li>
                                                         <a href="{{route('wishlist-delete',$data->id)}}" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
                                                         <a class="cart-img" href="#"><img src="{{$photo[0]}}" alt="{{$photo[0]}}"></a>
-                                                        <h4><a href="{{route('product-detail',$data->product['slug'])}}" target="_blank">{{$data->product['title']}}</a></h4>
+                                                        <h4><a href="{{route('product-detail',$data->product['slug'])}}">{{$data->product['title']}}</a></h4>
                                                         <p class="quantity">{{$data->quantity}} x - <span class="amount">${{number_format($data->price,2)}}</span></p>
                                                     </li>
                                             @endforeach
@@ -148,7 +146,7 @@
                                                     <li>
                                                         <a href="{{route('cart-delete',$data->id)}}" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
                                                         <a class="cart-img" href="#"><img src="{{$photo[0]}}" alt="{{$photo[0]}}"></a>
-                                                        <h4><a href="{{route('product-detail',$data->product['slug'])}}" target="_blank">{{$data->product['title']}}</a></h4>
+                                                        <h4><a href="{{route('product-detail',$data->product['slug'])}}">{{$data->product['title']}}</a></h4>
                                                         <p class="quantity">{{$data->quantity}} x - <span class="amount">${{number_format($data->price,2)}}</span></p>
                                                     </li>
                                             @endforeach
@@ -164,13 +162,15 @@
                             @endauth
                             <!--/ End Shopping Item -->
                         </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Header Inner -->
-    {{-- <div class="header-inner">
+    <div class="header-inner">
         <div class="container">
             <div class="cat-nav-head">
                 <div class="row">
@@ -185,9 +185,6 @@
                                             <li class="{{Request::path()=='about-us' ? 'active' : ''}}"><a href="{{route('about-us')}}">About Us</a></li>
                                             <li class="@if(Request::path()=='product-grids'||Request::path()=='product-lists')  active  @endif"><a href="{{route('product-grids')}}">Products</a><span class="new">New</span></li>												
                                                 {{Helper::getHeaderCategory()}}
-                                            <li class="{{Request::path()=='blog' ? 'active' : ''}}"><a href="{{route('blog')}}">Blog</a></li>									
-                                               
-                                            <li class="{{Request::path()=='contact' ? 'active' : ''}}"><a href="{{route('contact')}}">Contact Us</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -198,6 +195,6 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
     <!--/ End Header Inner -->
 </header>

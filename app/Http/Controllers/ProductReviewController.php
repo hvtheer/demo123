@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\Models\Product;
 use Illuminate\Http\Request;
-use App\Models\ProductReview;
+use App\Models\Product;
+use Notification;
 use App\Notifications\StatusNotification;
-use Illuminate\Support\Facades\Notification;
-
+use App\User;
+use App\Models\ProductReview;
 class ProductReviewController extends Controller
 {
     /**

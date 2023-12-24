@@ -173,7 +173,7 @@ textarea {
 	color: #424646;
     font-family: 'Poppins', sans-serif;
 	font-weight:400;
-	font-size: 18px;
+	font-size: 14px;
 	line-height: 24px;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -212,7 +212,7 @@ pre {
 }
 code, kbd, tt, var {
 	font-family: 'Poppins', sans-serif;
-	font-size: 18px;
+	font-size: 15px;
 	font-size: 0.9375rem;
 }
 
