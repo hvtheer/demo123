@@ -121,7 +121,7 @@
                                 </div>
                                 <!--/ End Single Widget -->
                                 <!-- Single Widget -->
-                                <div class="single-widget category">
+                                {{-- <div class="single-widget category">
                                     <h3 class="title">Brands</h3>
                                     <ul class="categor-list">
                                         @php
@@ -131,7 +131,7 @@
                                             <li><a href="{{route('product-brand',$brand->slug)}}">{{$brand->title}}</a></li>
                                         @endforeach
                                     </ul>
-                                </div>
+                                </div> --}}
                                 <!--/ End Single Widget -->
                         </div>
                     </div>
