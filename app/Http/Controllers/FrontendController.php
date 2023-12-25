@@ -1,21 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Banner;
 use App\Models\Product;
 use App\Models\Category;
-use App\Models\PostTag;
-use App\Models\PostCategory;
-use App\Models\Post;
-use App\Models\Cart;
 use App\Models\Brand;
 use App\User;
 use Auth;
 use Session;
-use Newsletter;
-use DB;
 use Hash;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 class FrontendController extends Controller
 {
@@ -26,14 +18,11 @@ class FrontendController extends Controller
 
     public function home(){
         $featured=Product::where('status','active')->where('is_featured',1)->orderBy('price','DESC')->limit(2)->get();
-        $banners=Banner::where('status','active')->limit(3)->orderBy('id','DESC')->get();
-        // return $banner;
         $products=Product::where('status','active')->orderBy('id','DESC')->limit(8)->get();
         $category=Category::where('status','active')->where('is_parent',1)->orderBy('title','ASC')->get();
         // return $category;
         return view('frontend.index')
                 ->with('featured',$featured)
-                ->with('banners',$banners)
                 ->with('product_lists',$products)
                 ->with('category_lists',$category);
     }   
